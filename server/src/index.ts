@@ -1,5 +1,6 @@
 import app from "./app";
 import datasource from "./datasource";
+import { BaseEntity } from "typeorm";
 
 const port = process.env.PORT ? Number(process.env.PORT) : 3000;
 
@@ -8,6 +9,7 @@ async function startApp() {
 
   try {
     await datasource.initialize();
+    BaseEntity.useDataSource(datasource);
     console.log(`✅ connected to Sqlite db`);
 
     app.listen(port, (err) => {

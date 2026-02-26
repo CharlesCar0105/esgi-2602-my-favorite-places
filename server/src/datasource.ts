@@ -1,9 +1,15 @@
 import { DataSource } from "typeorm";
+import { User } from "./entities/User";
+import { Address } from "./entities/Address";
 
 const datasource = new DataSource({
-  type: "better-sqlite3",
-  database: "./db.sqlite",
-  entities: ["./src/entities/**/*.{js,ts}"],
+  type: "postgres",
+  host: "localhost",
+  port: 5432,
+  username: "admin",
+  password: "admin",
+  database: "myapp",
+  entities: [User, Address],
   logging: true,
   synchronize: true,
 });
