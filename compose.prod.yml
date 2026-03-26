@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  server:
+    image: ghcr.io/charlescar0105/esgi-2602-my-favorite-places/server:latest
+    container_name: esgi-server
+    ports:
+      - "3000:3000"
+    environment:
+      - SESSION_SECRET=your_secret_key
+
+  client:
+    image: ghcr.io/charlescar0105/esgi-2602-my-favorite-places/client:latest
+    container_name: esgi-client
+    ports:
+      - "80:80"
+    depends_on:
+      - server
