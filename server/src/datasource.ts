@@ -3,12 +3,8 @@ import { User } from "./entities/User";
 import { Address } from "./entities/Address";
 
 const datasource = new DataSource({
-  type: "postgres",
-  host: "localhost",
-  port: 5432,
-  username: "admin",
-  password: "admin",
-  database: "myapp",
+  type: "sqlite",
+  database: "database.sqlite",
   entities: [User, Address],
   logging: true,
   synchronize: true,
