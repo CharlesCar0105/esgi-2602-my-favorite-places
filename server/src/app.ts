@@ -6,7 +6,7 @@ const app = express();
 // use JSON for req.body
 app.use(express.json());
 
-// use the router to answers request on /api
+// use the router to answers request on /ap
 app.use("/api", apiRouter);
 
 // return HTTP 404 if the request has not been handled
